@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_live_coding/api/meetup_api.dart';
-import 'package:flutter_live_coding/config/styles.dart';
 
 import 'package:flutter_live_coding/profile.dart';
 
@@ -85,7 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: new ListView.builder(
         itemBuilder: (BuildContext context, int index) {
           return new FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) {
+                return new ProfilePage(member: members[index]);
+              }));
+            },
             child: new Row(
               children: <Widget>[
                 new Padding(
