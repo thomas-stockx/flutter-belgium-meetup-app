@@ -93,16 +93,19 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 new Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: new Container(
-                    width: 50.0,
-                    height: 50.0,
-                    decoration: new BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: new DecorationImage(
-                            fit: BoxFit.cover,
-                            image: new NetworkImage(
-                                members[index].photo?.photoUrl ??
-                                    "http://via.placeholder.com/50x50"))),
+                  child: new Hero(
+                    tag: members[index].userId,
+                    child: new Container(
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(
+                              fit: BoxFit.cover,
+                              image: new NetworkImage(
+                                  members[index].photo?.photoUrl ??
+                                      "http://via.placeholder.com/50x50"))),
+                    ),
                   ),
                 ),
                 new Text(members[index].name)

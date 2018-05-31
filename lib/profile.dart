@@ -23,6 +23,22 @@ class ProfilePage extends StatelessWidget {
             AppColors.profileBackground2
           ], begin: Alignment.topLeft, end: Alignment.bottomRight),
         ),
+        child: new Column(
+          children: <Widget>[
+            new Hero(
+              tag: member.userId,
+              child: new Container(
+                height: 250.0,
+                decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                        fit: BoxFit.cover,
+                        image: new NetworkImage(
+                            member.photo?.highResUrl ??
+                                "http://via.placeholder.com/500x500"))),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
