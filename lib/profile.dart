@@ -5,8 +5,6 @@ import 'package:flutter_live_coding/config/styles.dart';
 class ProfilePage extends StatelessWidget {
   final MeetupMember member;
 
-  final TextStyle whiteText = new TextStyle(color: Colors.white);
-
   ProfilePage({@required this.member});
 
   @override
