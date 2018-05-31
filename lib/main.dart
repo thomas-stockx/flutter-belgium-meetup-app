@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_live_coding/api/meetup_api.dart';
+import 'package:flutter_live_coding/config/styles.dart';
 
 import 'package:flutter_live_coding/profile.dart';
 
@@ -54,7 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {}
 
   void _incrementCounter() async {
-    List<MeetupMember> memberList = await MeetupApi.getMembersForGroup("Flutter-Belgium");
+    List<MeetupMember> memberList =
+        await MeetupApi.getMembersForGroup("Flutter-Belgium");
 
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -80,31 +82,32 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: new Text(widget.title),
       ),
-      body: new Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: new Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug paint" (press "p" in the console where you ran
-          // "flutter run", or select "Toggle Debug Paint" from the Flutter tool
-          // window in IntelliJ) to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              members.isNotEmpty ? members[0].name : "Loading",
-              style: Theme.of(context).textTheme.display1,
+      body: new ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return new FlatButton(
+            onPressed: () {},
+            child: new Row(
+              children: <Widget>[
+                new Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Container(
+                    width: 50.0,
+                    height: 50.0,
+                    decoration: new BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: new DecorationImage(
+                            fit: BoxFit.cover,
+                            image: new NetworkImage(
+                                members[index].photo?.photoUrl ??
+                                    "http://via.placeholder.com/50x50"))),
+                  ),
+                ),
+                new Text(members[index].name)
+              ],
             ),
-          ],
-        ),
+          );
+        },
+        itemCount: members.length,
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: _incrementCounter,
