@@ -37,6 +37,22 @@ class ProfilePage extends StatelessWidget {
                                 "http://via.placeholder.com/500x500"))),
               ),
             ),
+            new Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+              child: new Column(
+                children: <Widget>[
+                  new Text(member.name, textAlign: TextAlign.center, style: TextStyles.profileName,),
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: new Text(member.groupProfile.intro ?? "Unknown", textAlign: TextAlign.center, style: TextStyles.profileDescription,),
+                  )
+                ],
+              ),
+            ),
+            new Container(
+              height: 0.5,
+                color: AppColors.semiTransparentLine,
+            )
           ],
         ),
       ),

@@ -14,6 +14,7 @@ class TextStyles {
   static const TextStyle profileDescription = const TextStyle(
     color: Colors.white,
     fontSize: 16.0,
+    height: 1.5,
   );
 
   static const TextStyle profileField = const TextStyle(
