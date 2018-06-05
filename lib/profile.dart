@@ -82,6 +82,41 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: new Container(
+        padding: new EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+        decoration: new BoxDecoration(
+          gradient: new LinearGradient(colors: [AppColors.navBarBackground1, AppColors.navBarBackground2], begin: Alignment.topLeft, end: Alignment.bottomRight)
+        ),
+        child: new Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            new IconButton(
+              icon: new Image(
+                width: 22.0,
+                  height: 22.0,
+                  image: new AssetImage("assets/images/calendar.png"),
+              ), onPressed: () {},
+            ),
+            new Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new FloatingActionButton(
+                backgroundColor: Colors.white,
+                child: const Icon(
+                  Icons.add,
+                  color: AppColors.navBarBackground1,
+                ), onPressed: () {},
+              ),
+            ),
+            new IconButton(
+                icon: new Image(
+                  width: 20.0,
+                  height: 20.0,
+                  image: new AssetImage("assets/images/overview.png"),
+                ), onPressed: () {},
+            )
+          ],
+        ),
+      ),
     );
   }
 }
