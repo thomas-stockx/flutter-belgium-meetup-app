@@ -52,7 +52,33 @@ class ProfilePage extends StatelessWidget {
             new Container(
               height: 0.5,
                 color: AppColors.semiTransparentLine,
-            )
+            ),
+            new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Column(children: <Widget>[
+                    new Text("Country", style: TextStyles.profileSmallHeader
+                    ),
+                    new Text(member.country, style: TextStyles.profileField)
+                  ],)
+                ),
+                new Container(
+                  height: 100.0,
+                    width: 0.5,
+                  color: AppColors.semiTransparentLine,
+                ),
+                new Expanded(
+                    child: new Column(children: <Widget>[
+                      new Text("role", style: TextStyles.profileSmallHeader
+                      ),
+                      new Text(member.groupProfile?.role ?? "member", style: TextStyles.profileField)
+                    ],)
+                ),
+              ],
+            ),new Container(
+              height: 0.5,
+              color: AppColors.semiTransparentLine,
+            ),
           ],
         ),
       ),
